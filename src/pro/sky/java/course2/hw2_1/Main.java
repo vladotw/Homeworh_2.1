@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Car ladaGranta = new Car("Lada","Granta", 2015, 1.7, "yellow",
-                "Russia");
+        Car ladaGranta = new Car("","", 0, 0, "",
+                "");
         Car audiA8 = new Car("Audi", "A8", 2020, 3.0, "black",
                 "Germany");
         Car bmwZ8 = new Car("BMW", "Z8", 2021, 3.0, "black",
