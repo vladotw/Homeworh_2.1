@@ -7,8 +7,5 @@ public class Bus extends Transport {
         super(brand, model, releaseYear, originCountry, bodyColor, maxSpeed);
     }
 
-    @Override
-    public String toString() {
-        return "Bus{} " + super.toString();
-    }
+
 }
