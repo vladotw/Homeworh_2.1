@@ -1,6 +1,6 @@
 package pro.sky.java.course2.hw2_1.transport;
 
-public class Transport {
+abstract class Transport {
     private String brand;
     private String model;
     private final int releaseYear;
