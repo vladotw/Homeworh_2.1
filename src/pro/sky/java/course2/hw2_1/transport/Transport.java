@@ -1,36 +1,40 @@
 package pro.sky.java.course2.hw2_1.transport;
 
-abstract class Transport {
+public abstract class Transport {
     private String brand;
     private String model;
-    private final int releaseYear;
-    private final String originCountry;
-    private String bodyColor;
-    private int maxSpeed;
+    private double engineVolume;
+//    private final int releaseYear;
+//    private final String originCountry;
+//    private String bodyColor;
+//    private int maxSpeed;
 
-    private static final String DEFAULT_COLOR = "white";
-    private static final int DEFAULT_YEAR = 2000;
+//    private static final String DEFAULT_COLOR = "white";
+//    private static final int DEFAULT_YEAR = 2000;
     private static final String DEFAULT_VALUE = "Default";
-    private static final int DEFAULT_MAXSPEED = 100;
+    private static final double DEFAULT_ENGINE_VOLUME = 1.5;
+//    private static final int DEFAULT_MAXSPEED = 100;
 
 
-    public Transport(String brand, String model, int releaseYear, String originCountry, String bodyColor, int maxSpeed) {
+    public Transport(String brand, String model, double engineVolume) {
         setBrand(brand);
         setModel(model);
-        setBodyColor(bodyColor);
-        setMaxSpeed(maxSpeed);
+        setEngineVolume(engineVolume);
 
-        if (releaseYear == 0) {
-            this.releaseYear = DEFAULT_YEAR;
-        } else {
-            this.releaseYear = releaseYear;
-        }
+//        setBodyColor(bodyColor);
+//        setMaxSpeed(maxSpeed);
 
-        if (originCountry == null || originCountry.isBlank()) {
-            this.originCountry = DEFAULT_VALUE;
-        } else {
-            this.originCountry = originCountry;
-        }
+//        if (releaseYear == 0) {
+//            this.releaseYear = DEFAULT_YEAR;
+//        } else {
+//            this.releaseYear = releaseYear;
+//        }
+
+//        if (originCountry == null || originCountry.isBlank()) {
+//            this.originCountry = DEFAULT_VALUE;
+//        } else {
+//            this.originCountry = originCountry;
+//        }
     }
 
     public String getBrand() {
@@ -57,47 +61,78 @@ abstract class Transport {
         }
     }
 
-    public String getBodyColor() {
-        return bodyColor;
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
-    public void setBodyColor(String bodyColor) {
-        if (bodyColor == null || bodyColor.isBlank()) {
-            this.bodyColor = DEFAULT_COLOR;
+    public void setEngineVolume(double engineVolume) {
+        if (engineVolume <= 0) {
+            this.engineVolume = DEFAULT_ENGINE_VOLUME;
         } else {
-            this.bodyColor = bodyColor;
+            this.engineVolume = engineVolume;
         }
     }
 
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
+//    public String getBodyColor() {
+//        return bodyColor;
+//    }
 
-    public void setMaxSpeed(int maxSpeed) {
-        if (maxSpeed == 0) {
-            this.maxSpeed = DEFAULT_MAXSPEED;
-        } else {
-            this.maxSpeed = maxSpeed;
-        }
-    }
+//    public void setBodyColor(String bodyColor) {
+//        if (bodyColor == null || bodyColor.isBlank()) {
+//            this.bodyColor = DEFAULT_COLOR;
+//        } else {
+//            this.bodyColor = bodyColor;
+//        }
+//    }
 
-    public int getReleaseYear() {
-        return releaseYear;
-    }
+//    public int getMaxSpeed() {
+//        return maxSpeed;
+//    }
 
-    public String getOriginCountry() {
-        return originCountry;
-    }
+//    public void setMaxSpeed(int maxSpeed) {
+//        if (maxSpeed == 0) {
+//            this.maxSpeed = DEFAULT_MAXSPEED;
+//        } else {
+//            this.maxSpeed = maxSpeed;
+//        }
+//    }
+
+//    public int getReleaseYear() {
+//        return releaseYear;
+//    }
+//
+//    public String getOriginCountry() {
+//        return originCountry;
+//    }
+
+//    @Override
+//    public String toString() {
+//        return "Transport{" +
+//                "brand='" + brand + '\'' +
+//                ", model='" + model + '\'' +
+//                ", releaseYear=" + releaseYear +
+//                ", originCountry='" + originCountry + '\'' +
+//                ", bodyColor='" + bodyColor + '\'' +
+//                ", maxSpeed=" + maxSpeed +
+//                '}';
+//    }
+
 
     @Override
     public String toString() {
         return "Transport{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", releaseYear=" + releaseYear +
-                ", originCountry='" + originCountry + '\'' +
-                ", bodyColor='" + bodyColor + '\'' +
-                ", maxSpeed=" + maxSpeed +
+                ", engineVolume=" + engineVolume +
                 '}';
+    }
+
+    public void startMoving() {
+        System.out.println("начал движение");
+
+    }
+
+    public void finishMoving() {
+        System.out.println("закончил движение");
     }
 }

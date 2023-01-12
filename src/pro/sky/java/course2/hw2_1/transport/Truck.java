@@ -1,10 +1,9 @@
 package pro.sky.java.course2.hw2_1.transport;
 
-public class Bus extends Transport {
+public class Truck extends Transport{
 
-
-    public Bus(String brand, String model, double engineVolume) {
-        super(brand,model, engineVolume);
+    public Truck(String brand, String model, double engineVolume) {
+        super(brand, model, engineVolume);
     }
 
     @Override
@@ -19,6 +18,3 @@ public class Bus extends Transport {
         super.startMoving();
     }
 }
-
-
-
