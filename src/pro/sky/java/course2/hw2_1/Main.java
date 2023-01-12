@@ -36,5 +36,9 @@ public class Main {
         kamAZ6560.finishMoving();
 
         gazel.startMoving();
+
+        audiA8.pitStop();
+        maz.bestLapTime(1.11);
+        kamAZ65117.maxSpeed(105.3);
     }
 }
