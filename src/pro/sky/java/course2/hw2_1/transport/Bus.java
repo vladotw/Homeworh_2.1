@@ -1,22 +1,22 @@
 package pro.sky.java.course2.hw2_1.transport;
 
-public class Bus extends Transport implements Competing{
+import pro.sky.java.course2.hw2_1.drivers.CatD;
+
+public class Bus extends Transport <CatD> {
 
 
-    public Bus(String brand, String model, double engineVolume) {
-        super(brand,model, engineVolume);
+    public Bus(String brand, String model, double engineVolume, CatD driver) {
+        super(brand, model, engineVolume, driver);
     }
 
     @Override
     public void finishMoving() {
-        System.out.print(getBrand() + " " + getModel() + " ");
-        super.finishMoving();
+        System.out.print("Автобус " + getBrand() + " " + getModel() + " закончил движение");
     }
 
     @Override
     public void startMoving() {
-        System.out.print(getBrand() + " " + getModel() + " ");
-        super.startMoving();
+        System.out.print("Автобус " + getBrand() + " " + getModel() + " начал движение");
     }
 
     @Override

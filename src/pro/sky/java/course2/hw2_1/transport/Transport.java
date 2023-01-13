@@ -1,9 +1,13 @@
 package pro.sky.java.course2.hw2_1.transport;
 
-public abstract class Transport {
-    private String brand;
-    private String model;
+import pro.sky.java.course2.hw2_1.drivers.Driver;
+
+public abstract class Transport <T extends Driver> implements Competing {
+    private final String brand;
+    private final String model;
     private double engineVolume;
+    private final T driver;
+
 //    private final int releaseYear;
 //    private final String originCountry;
 //    private String bodyColor;
@@ -13,13 +17,26 @@ public abstract class Transport {
 //    private static final int DEFAULT_YEAR = 2000;
     private static final String DEFAULT_VALUE = "Default";
     private static final double DEFAULT_ENGINE_VOLUME = 1.5;
+
 //    private static final int DEFAULT_MAXSPEED = 100;
 
+    public Transport(String brand, String model, double engineVolume, T driver) {
 
-    public Transport(String brand, String model, double engineVolume) {
-        setBrand(brand);
-        setModel(model);
+        if (brand == null || brand.isBlank()) {
+            this.brand = DEFAULT_VALUE;
+        } else {
+            this.brand = brand;
+        }
+
+        if (model == null || model.isBlank()) {
+            this.model = DEFAULT_VALUE;
+        } else {
+            this.model = model;
+        }
+
         setEngineVolume(engineVolume);
+        this.driver = driver;
+    }
 
 //        setBodyColor(bodyColor);
 //        setMaxSpeed(maxSpeed);
@@ -35,30 +52,13 @@ public abstract class Transport {
 //        } else {
 //            this.originCountry = originCountry;
 //        }
-    }
 
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
-        if (brand == null || brand.isBlank()) {
-            this.brand = DEFAULT_VALUE;
-        } else {
-            this.brand = brand;
-        }
-    }
-
     public String getModel() {
         return model;
-    }
-
-    public void setModel(String model) {
-        if (model == null || model.isBlank()) {
-            this.model = DEFAULT_VALUE;
-        } else {
-            this.model = model;
-        }
     }
 
     public double getEngineVolume() {
@@ -117,7 +117,6 @@ public abstract class Transport {
 //                '}';
 //    }
 
-
     @Override
     public String toString() {
         return "Transport{" +
@@ -127,12 +126,11 @@ public abstract class Transport {
                 '}';
     }
 
-    public void startMoving() {
-        System.out.println("начал движение");
+    public abstract void startMoving();
 
-    }
+    public abstract void finishMoving();
 
-    public void finishMoving() {
-        System.out.println("закончил движение");
+    public T getDriver() {
+        return driver;
     }
 }

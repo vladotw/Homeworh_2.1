@@ -1,6 +1,8 @@
 package pro.sky.java.course2.hw2_1.transport;
 
-public class Car extends Transport implements Competing{
+import pro.sky.java.course2.hw2_1.drivers.CatB;
+
+public class Car extends Transport<CatB>{
 
 //    private double engineVolume;
 //    private String transmission;
@@ -16,10 +18,11 @@ public class Car extends Transport implements Competing{
     private static final String DEFAULT_BODY_TYPE = "sedan";
 //    private static final int DEFAULT_NUMBEROFSEATS = 5;
 
+    public Car(String brand, String model, double engineVolume, CatB driver) {
+        super(brand, model, engineVolume, driver);
+    }
 
-    public Car(String brand, String model, double engineVolume) {
 
-        super(brand, model, engineVolume);
 //        setEngineVolume(engineVolume);
 //        setTransmission(transmission);
 //        setRegNumber(regNumber);
@@ -38,7 +41,7 @@ public class Car extends Transport implements Competing{
 //            this.bodyType = bodyType;
 //        }
 
-    }
+
 
 //    class Key {
 //        private final boolean remoteStart;
@@ -150,16 +153,15 @@ public class Car extends Transport implements Competing{
 //                '}';
 //    }
 
+
     @Override
     public void finishMoving() {
-        System.out.print(getBrand() + " " + getModel() + " ");
-        super.finishMoving();
+        System.out.print("Автомобиль " + getBrand() + " " + getModel() + " закончил движение");
     }
 
     @Override
     public void startMoving() {
-        System.out.print(getBrand() + " " + getModel() + " ");
-        super.startMoving();
+        System.out.print("Автомобиль " + getBrand() + " " + getModel() + " начал движение");
     }
 
     @Override
