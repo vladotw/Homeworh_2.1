@@ -3,37 +3,34 @@ package pro.sky.java.course2.hw2_1;
 import pro.sky.java.course2.hw2_1.drivers.CatB;
 import pro.sky.java.course2.hw2_1.drivers.CatC;
 import pro.sky.java.course2.hw2_1.drivers.CatD;
-import pro.sky.java.course2.hw2_1.transport.Bus;
-import pro.sky.java.course2.hw2_1.transport.Car;
-import pro.sky.java.course2.hw2_1.transport.Transport;
-import pro.sky.java.course2.hw2_1.transport.Truck;
+import pro.sky.java.course2.hw2_1.transport.*;
+
+import static pro.sky.java.course2.hw2_1.transport.CarType.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
 
+        CatB driverB1 = new CatB("NameB1", true, 1);
+        CatB driverB2 = new CatB("NameB2", true, 3);
+        CatB driverB3 = new CatB("NameB3", true, 5);
+        CatB driverB4 = new CatB("NameB4", true, 7);
 
-        CatB driverB1 = new CatB("NameB1", true,1);
-        CatB driverB2 = new CatB("NameB2", true,3);
-        CatB driverB3 = new CatB("NameB3", true,5);
-        CatB driverB4 = new CatB("NameB4", true,7);
+        CatD driverD1 = new CatD("NameD1", true, 3);
+        CatD driverD2 = new CatD("NameD2", true, 5);
+        CatD driverD3 = new CatD("NameD3", true, 7);
+        CatD driverD4 = new CatD("NameD4", true, 9);
 
-        CatD driverD1 = new CatD("NameD1", true,3);
-        CatD driverD2 = new CatD("NameD2", true,5);
-        CatD driverD3 = new CatD("NameD3", true,7);
-        CatD driverD4 = new CatD("NameD4", true,9);
+        CatC driverC1 = new CatC("NameC1", true, 2);
+        CatC driverC2 = new CatC("NameC2", true, 4);
+        CatC driverC3 = new CatC("NameC3", true, 6);
+        CatC driverC4 = new CatC("NameC4", true, 8);
 
-        CatC driverC1 = new CatC("NameC1", true,2);
-        CatC driverC2 = new CatC("NameC2", true,4);
-        CatC driverC3 = new CatC("NameC3", true,6);
-        CatC driverC4 = new CatC("NameC4", true,8);
-
-        Car ladaGranta = new Car("Lada","Granta", 2.0, driverB1);
-        Car audiA8 = new Car("Audi", "A8", 3.0, driverB2);
-        Car bmwF20 = new Car("BMW", "F20", 1.6, driverB3);
-        Car bmwF23 = new Car("BMW", "F23", 2.0, driverB4);
-
+        Car ladaGranta = new Car("Lada", "Granta", 2.0, driverB1);
+//        Car audiA8 = new Car("Audi", "A8", 3.0, driverB2);
+//        Car bmwF20 = new Car("BMW", "F20", 1.6, driverB3);
+//        Car bmwF23 = new Car("BMW", "F23", 2.0, driverB4);
 
 
 //        System.out.println(ladaGranta);
@@ -54,27 +51,42 @@ public class Main {
         Truck kamAZ65117 = new Truck("КамАЗ", "65117", 11.97, driverC3);
         Truck kamAZ6560 = new Truck("КамАЗ", "6560", 11.76, driverC4);
 
-        kamAZ6560.finishMoving();
-        gazel.startMoving();
+//        kamAZ6560.finishMoving();
+//        gazel.startMoving();
+//
+//        driverB1.refuelTheCar();
+//        driverC2.beginMovie();
+//        driverD3.endMovie();
+//
+//        ladaGranta.pitStop();
+//        maz.bestLapTime(1.11);
+//        kamAZ65117.maxSpeed(105.3);
 
-        driverB1.refuelTheCar();
-        driverC2.beginMovie();
-        driverD3.endMovie();
+//        printInfo(audiA8);
 
-        audiA8.pitStop();
-        maz.bestLapTime(1.11);
-        kamAZ65117.maxSpeed(105.3);
+        ladaGranta.setCarType("Седан");
+        System.out.println(ladaGranta);
 
-        printInfo(audiA8);
+        kamAZ65207.setTruckType(4);
+        kamAZ65207.printType();
+        kamAZ43253.printType();
+
+        volvoB10M.setBusType(100);
+        volvoB10M.printType();
 
 
-
+//        System.out.println();
+//
+//        kamAZ6560.doType(3.0F);
+//        System.out.println(kamAZ6560);
 
 
     }
 
-    private static void printInfo(Transport transport) {
-        System.out.println("Водитель " + transport.getDriver().getFio() + " управляет ТС " + transport.getBrand() +
-                " " + transport.getModel() + " и будет учавствовать в заезде.");
-    }
+//    private static void printInfo(Transport transport) {
+//        System.out.println("Водитель " + transport.getDriver().getFio() + " управляет ТС " + transport.getBrand() +
+//                " " + transport.getModel() + " и будет учавствовать в заезде.");
+//    }
+
+
 }

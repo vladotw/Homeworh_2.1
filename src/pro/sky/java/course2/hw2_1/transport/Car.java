@@ -2,26 +2,30 @@ package pro.sky.java.course2.hw2_1.transport;
 
 import pro.sky.java.course2.hw2_1.drivers.CatB;
 
-public class Car extends Transport<CatB>{
+import java.util.Arrays;
 
-//    private double engineVolume;
+public class Car extends Transport<CatB> {
+
+    //    private double engineVolume;
 //    private String transmission;
-//    private final String bodyType;
-//    private String regNumber;
+    public static CarType carType;
+
+    //    private String regNumber;
 //    private final int numberOfSeats;
 //    private boolean summerTyre;
 //    private Key key;
+    private CarType[] carTypes = new CarType[CarType.values().length];
 
     private static final String DEFAULT_VALUE = "Default";
-//    private static final double DEFAULT_ENGINE_VOLUME = 1.5;
+    //    private static final double DEFAULT_ENGINE_VOLUME = 1.5;
     private static final String DEFAULT_TRANSMISSION = "manual";
     private static final String DEFAULT_BODY_TYPE = "sedan";
 //    private static final int DEFAULT_NUMBEROFSEATS = 5;
 
     public Car(String brand, String model, double engineVolume, CatB driver) {
         super(brand, model, engineVolume, driver);
-    }
 
+    }
 
 //        setEngineVolume(engineVolume);
 //        setTransmission(transmission);
@@ -40,7 +44,6 @@ public class Car extends Transport<CatB>{
 //        } else {
 //            this.bodyType = bodyType;
 //        }
-
 
 
 //    class Key {
@@ -153,10 +156,29 @@ public class Car extends Transport<CatB>{
 //                '}';
 //    }
 
+    public static CarType getCarType() {
+        return carType;
+    }
+
+//    public void doType(CarType type) {
+//        switch (type) {
+//            case VAN:
+//                System.out.println("У машины " + getBrand() + " " + getModel());
+//        }
+//    }
 
     @Override
     public void finishMoving() {
         System.out.print("Автомобиль " + getBrand() + " " + getModel() + " закончил движение");
+    }
+
+    @Override
+    public void printType() {
+        if (carType == null){
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(getCarType().toString());
+        }
     }
 
     @Override
@@ -166,7 +188,7 @@ public class Car extends Transport<CatB>{
 
     @Override
     public void pitStop() {
-
+        System.out.println("Автомобиль " + getBrand() + " " + getModel() + " на питстопе");
     }
 
     @Override
@@ -180,4 +202,23 @@ public class Car extends Transport<CatB>{
         System.out.println(getBrand() + " " + getModel() + " максимальная скорость " + speed +
                 " км/ч");
     }
+
+    public void setCarType(String bodyType) {
+
+        CarType carType = CarType.findByName(bodyType);
+
+        if (carType == null) {
+            carType = CarType.valueOf(bodyType);
+        }
+
+        this.carType = carType;
+    }
+
+
+    @Override
+    public String toString() {
+        return getCarType().toString();
+    }
+
+
 }
