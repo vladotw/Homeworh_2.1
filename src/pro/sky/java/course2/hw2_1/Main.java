@@ -65,7 +65,7 @@ public class Main {
 //        printInfo(audiA8);
 
         ladaGranta.setCarType("Седан");
-        System.out.println(ladaGranta);
+        ladaGranta.printType();
 
         kamAZ65207.setTruckType(4);
         kamAZ65207.printType();
