@@ -11,13 +11,9 @@ public enum BusType {
 
     private final String busType;
 
-
-
     BusType(String busType ) {
         this.busType = busType;
     }
-
-
 
     public String getBusType() {
         return busType;

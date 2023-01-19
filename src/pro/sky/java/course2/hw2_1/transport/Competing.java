@@ -5,4 +5,5 @@ public interface Competing {
     void pitStop();
     void bestLapTime(double time);
     void maxSpeed(double speed);
+
 }

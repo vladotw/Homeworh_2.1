@@ -18,6 +18,7 @@ public class Bus extends Transport <CatD> {
         System.out.println("Автобус " + getBrand() + " " + getModel() + " закончил движение");
     }
 
+
     @Override
     public void printType() {
         if (busType == null){

@@ -64,6 +64,7 @@ public class Main {
 
 //        printInfo(audiA8);
 
+
         ladaGranta.setCarType("Седан");
         ladaGranta.printType();
 

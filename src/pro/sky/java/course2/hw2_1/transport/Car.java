@@ -167,6 +167,7 @@ public class Car extends Transport<CatB> {
 //        }
 //    }
 
+
     @Override
     public void finishMoving() {
         System.out.print("Автомобиль " + getBrand() + " " + getModel() + " закончил движение");

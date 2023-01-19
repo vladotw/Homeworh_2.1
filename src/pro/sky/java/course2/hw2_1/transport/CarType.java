@@ -11,6 +11,7 @@ public enum CarType {
     VAN("Фургон"),
     MINIVAN("Минивэн");
 
+
     private final String carType;
 
     CarType(String carType) {

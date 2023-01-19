@@ -31,7 +31,6 @@ public class Truck extends Transport<CatC> {
 
     private TruckType trackType;
 
-
     public Truck(String brand, String model, double engineVolume, CatC driver) {
         super(brand, model, engineVolume, driver);
     }
