@@ -72,6 +72,7 @@ public class Main {
         kamAZ65207.printType();
 //        kamAZ43253.printType();
 
+        maz.printType();
 //        volvoB10M.setBusType(100);
 //        volvoB10M.printType();
 

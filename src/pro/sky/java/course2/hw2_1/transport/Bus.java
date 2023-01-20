@@ -38,7 +38,8 @@ public class Bus extends Transport <CatD> {
         if (busType == null){
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
-            System.out.println("Вместимость автобуса от " + busType.getMinCapacity() + "" + busType.getMaxCapacity());
+            System.out.println("Вместимость автобуса от " + busType.getMinCapacity() + " до " +
+                    busType.getMaxCapacity() + " чел.");
         }
     }
 
