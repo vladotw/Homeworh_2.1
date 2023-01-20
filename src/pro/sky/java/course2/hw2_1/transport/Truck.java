@@ -4,32 +4,7 @@ import pro.sky.java.course2.hw2_1.drivers.CatC;
 
 public class Truck extends Transport<CatC> {
 
-//    private TruckType truckType;
-
-    public enum TruckType {
-        N1("Грузоподъёмность до 3,5 тонн"),
-        N2("Грузоподъёмность от 3,5 до 12 тонн"),
-        N3("Грузоподъёмность больше 12 тонн");
-
-        private static final float BORDER_1 = 3.5F;
-        private static final float BORDER_2 = 12F;
-        private final String capacity;
-
-        TruckType(String capacity) {
-            this.capacity = capacity;
-        }
-
-        public String getCapacity() {
-            return capacity;
-        }
-
-        @Override
-        public String toString() {
-            return  capacity;
-        }
-    }
-
-    private TruckType trackType;
+    private TruckType truckType;
 
     public Truck(String brand, String model, double engineVolume, CatC driver) {
         super(brand, model, engineVolume, driver);
@@ -42,10 +17,10 @@ public class Truck extends Transport<CatC> {
 
     @Override
     public void printType() {
-        if (trackType == null){
+        if (truckType == null){
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
-            System.out.println(getTrackType().toString());
+            System.out.println(getTruckType().toString());
         }
     }
 
@@ -74,22 +49,22 @@ public class Truck extends Transport<CatC> {
     public TruckType setTruckType(float truckCapacity) {
         if (truckCapacity > TruckType.BORDER_1) {
             if (truckCapacity > TruckType.BORDER_2) {
-                trackType = TruckType.N3;
+                truckType = TruckType.N3;
             } else {
-                trackType =  TruckType.N2;
+                truckType =  TruckType.N2;
             }
         } else {
-            trackType =  TruckType.N1;
+            truckType =  TruckType.N1;
         }
         return null;
     }
 
-    public TruckType getTrackType() {
-        return trackType;
+    public TruckType getTruckType() {
+        return truckType;
     }
 
     @Override
     public String toString() {
-        return getTrackType().toString();
+        return getTruckType().toString();
     }
 }
