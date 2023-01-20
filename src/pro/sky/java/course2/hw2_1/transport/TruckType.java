@@ -1,27 +1,25 @@
 package pro.sky.java.course2.hw2_1.transport;
+import java.lang.Float;
 
 public enum TruckType {
 
-    N1("Грузоподъёмность до 3,5 тонн"),
-    N2("Грузоподъёмность от 3,5 до 12 тонн"),
-    N3("Грузоподъёмность больше 12 тонн");
+    N1(0F, 3.5F),
+    N2(3.5F, 12F),
+    N3(12F, null);
 
-    public static final float BORDER_1 = 3.5F;
-    public static final float BORDER_2 = 12F;
-    private final String weight;
+    private final Float lowerBound;
+    private final Float upperBound;
 
-    TruckType(String weight) {
-        this.weight = weight;
+    TruckType(Float lowerBound, Float upperBound) {
+        this.lowerBound = lowerBound;
+        this.upperBound = upperBound;
     }
 
-    public String getWeight() {
-        return weight;
+    public Float getLowerBound() {
+        return lowerBound;
     }
 
-    @Override
-    public String toString() {
-        return weight;
+    public Float getUpperBound() {
+        return upperBound;
     }
-
-
 }

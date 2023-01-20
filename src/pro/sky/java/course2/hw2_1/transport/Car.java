@@ -14,7 +14,6 @@ public class Car extends Transport<CatB> {
 //    private final int numberOfSeats;
 //    private boolean summerTyre;
 //    private Key key;
-    private CarType[] carTypes = new CarType[CarType.values().length];
 
     private static final String DEFAULT_VALUE = "Default";
     //    private static final double DEFAULT_ENGINE_VOLUME = 1.5;
@@ -22,8 +21,13 @@ public class Car extends Transport<CatB> {
     private static final String DEFAULT_BODY_TYPE = "sedan";
 //    private static final int DEFAULT_NUMBEROFSEATS = 5;
 
-    public Car(String brand, String model, double engineVolume, CatB driver) {
+    public Car(String brand,
+               String model,
+               double engineVolume,
+               CatB driver,
+               CarType carType) {
         super(brand, model, engineVolume, driver);
+        this.carType = carType;
 
     }
 
@@ -160,6 +164,10 @@ public class Car extends Transport<CatB> {
         return carType;
     }
 
+    public void setCarType(String bodyType) {
+
+    }
+
 //    public void doType(CarType type) {
 //        switch (type) {
 //            case VAN:
@@ -178,7 +186,7 @@ public class Car extends Transport<CatB> {
         if (carType == null){
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
-            System.out.println(getCarType().toString());
+            System.out.println("Тип кузова: " + getCarType());
         }
     }
 
@@ -204,16 +212,7 @@ public class Car extends Transport<CatB> {
                 " км/ч");
     }
 
-    public void setCarType(String bodyType) {
 
-        CarType carType = CarType.findByName(bodyType);
-
-        if (carType == null) {
-            carType = CarType.valueOf(bodyType);
-        }
-
-        this.carType = carType;
-    }
 
 
     @Override

@@ -3,24 +3,25 @@ package pro.sky.java.course2.hw2_1.transport;
 import java.security.PublicKey;
 
 public enum BusType {
-    VSMALL("Вместимость: до 10 мест"),
-    SMALL("Вместимость: до 25 мест"),
-    MIDDLE("Вместимость: 40–50 мест"),
-    BIG("Вместимость: 60–80 мест"),
-    VBIG("Вместимость: 100–120 мест");
+    VSMALL(0, 10),
+    SMALL(10, 25),
+    MIDDLE(40, 50),
+    BIG(60, 80),
+    VBIG(100, 120);
 
-    private final String busType;
+    private final int minCapacity;
+    private final int maxCapacity;
 
-    BusType(String busType ) {
-        this.busType = busType;
+    BusType(int minCapacity, int maxCapacity) {
+        this.minCapacity = minCapacity;
+        this.maxCapacity = maxCapacity;
     }
 
-    public String getBusType() {
-        return busType;
+    public int getMinCapacity() {
+        return minCapacity;
     }
 
-    @Override
-    public String toString() {
-        return busType;
+    public int getMaxCapacity() {
+        return maxCapacity;
     }
 }

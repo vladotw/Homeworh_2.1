@@ -2,12 +2,20 @@ package pro.sky.java.course2.hw2_1.transport;
 
 import pro.sky.java.course2.hw2_1.drivers.CatC;
 
+
 public class Truck extends Transport<CatC> {
 
     private TruckType truckType;
 
-    public Truck(String brand, String model, double engineVolume, CatC driver) {
+
+    public Truck(String brand,
+                 String model,
+                 double engineVolume,
+                 CatC driver,
+                 TruckType truckType)
+    {
         super(brand, model, engineVolume, driver);
+        this.truckType = truckType;
     }
 
     @Override
@@ -17,12 +25,16 @@ public class Truck extends Transport<CatC> {
 
     @Override
     public void printType() {
-        if (truckType == null){
+        if (truckType == null) {
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
-            System.out.println(getTruckType().toString());
+            String low = truckType.getLowerBound() == null ? "" : " от " + truckType.getLowerBound();
+            String upper = truckType.getUpperBound() == null ? "" : " до " +truckType.getUpperBound();
+            System.out.println("Грузоподъёмность" + low + upper + " т.");
         }
     }
+
+
 
     @Override
     public void startMoving() {
@@ -46,17 +58,9 @@ public class Truck extends Transport<CatC> {
                 " км/ч");
     }
 
-    public TruckType setTruckType(float truckCapacity) {
-        if (truckCapacity > TruckType.BORDER_1) {
-            if (truckCapacity > TruckType.BORDER_2) {
-                truckType = TruckType.N3;
-            } else {
-                truckType =  TruckType.N2;
-            }
-        } else {
-            truckType =  TruckType.N1;
-        }
-        return null;
+
+    public void setTruckType(TruckType truckType) {
+        this.truckType = truckType;
     }
 
     public TruckType getTruckType() {
