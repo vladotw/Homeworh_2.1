@@ -3,8 +3,8 @@ package pro.sky.java.course2.hw2_1;
 import pro.sky.java.course2.hw2_1.drivers.CatB;
 import pro.sky.java.course2.hw2_1.drivers.CatC;
 import pro.sky.java.course2.hw2_1.drivers.CatD;
+import pro.sky.java.course2.hw2_1.drivers.Driver;
 import pro.sky.java.course2.hw2_1.transport.*;
-
 
 
 public class Main {
@@ -67,6 +67,8 @@ public class Main {
 
 //        ladaGranta.setCarType("Седан");
         ladaGranta.printType();
+        driverLicense(ladaGranta);
+        ladaGranta.passDiagnostics('k');
 
 //        kamAZ65207.setTruckType(4);
         kamAZ65207.printType();
@@ -76,12 +78,22 @@ public class Main {
 //        volvoB10M.setBusType(100);
 //        volvoB10M.printType();
 
-
 //        System.out.println();
 //
 //        kamAZ6560.doType(3.0F);
 //        System.out.println(kamAZ6560);
 
+
+    }
+
+    private static void driverLicense(Transport... transports) {
+        for (Transport transport : transports) {
+            try {
+                transport.driverLicense();
+            } catch (NoDriversLicenseException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
     }
 

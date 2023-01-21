@@ -1,6 +1,7 @@
 package pro.sky.java.course2.hw2_1.transport;
 
 import pro.sky.java.course2.hw2_1.drivers.CatB;
+import pro.sky.java.course2.hw2_1.drivers.CatC;
 
 import java.util.Arrays;
 
@@ -187,6 +188,20 @@ public class Car extends Transport<CatB> {
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
             System.out.println("Тип кузова: " + getCarType());
+        }
+    }
+
+    @Override
+    public void passDiagnostics(char pass) {
+        super.passDiagnostics(pass);
+    }
+
+    @Override
+    public void driverLicense() throws NoDriversLicenseException {
+        if (!getDriver().isDriversLicense() || getDriver().getClass() != CatB.class) {
+            throw new NoDriversLicenseException("Необходимо указать тип прав!");
+        } else {
+            System.out.println("У водителя " + getDriver().getFio() + " права категории B.");
         }
     }
 

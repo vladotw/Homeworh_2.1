@@ -1,5 +1,6 @@
 package pro.sky.java.course2.hw2_1.transport;
 
+import pro.sky.java.course2.hw2_1.drivers.CatB;
 import pro.sky.java.course2.hw2_1.drivers.CatD;
 
 public class Bus extends Transport <CatD> {
@@ -40,6 +41,15 @@ public class Bus extends Transport <CatD> {
         } else {
             System.out.println("Вместимость автобуса от " + busType.getMinCapacity() + " до " +
                     busType.getMaxCapacity() + " чел.");
+        }
+    }
+
+    @Override
+    public void driverLicense() throws NoDriversLicenseException {
+        if (!getDriver().isDriversLicense() || getDriver().getClass() != CatD.class) {
+            throw new NoDriversLicenseException("Необходимо указать тип прав!");
+        } else {
+            System.out.println("У водителя " + getDriver().getFio() + " права категории D.");
         }
     }
 

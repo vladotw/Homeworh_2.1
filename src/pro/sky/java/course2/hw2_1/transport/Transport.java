@@ -2,7 +2,7 @@ package pro.sky.java.course2.hw2_1.transport;
 
 import pro.sky.java.course2.hw2_1.drivers.Driver;
 
-public abstract class Transport <T extends Driver> implements Competing {
+public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private double engineVolume;
@@ -13,7 +13,7 @@ public abstract class Transport <T extends Driver> implements Competing {
 //    private String bodyColor;
 //    private int maxSpeed;
 
-//    private static final String DEFAULT_COLOR = "white";
+    //    private static final String DEFAULT_COLOR = "white";
 //    private static final int DEFAULT_YEAR = 2000;
     private static final String DEFAULT_VALUE = "Default";
     private static final double DEFAULT_ENGINE_VOLUME = 1.5;
@@ -136,4 +136,18 @@ public abstract class Transport <T extends Driver> implements Competing {
     }
 
     public abstract void printType();
+
+    public void passDiagnostics(char pass){
+        if (pass == 'y') {
+            System.out.println("Пройти диагностику");
+        } else if (pass == 'n') {
+            System.out.println("Проходить диагностику не нужно");
+        } else {
+            throw new IllegalArgumentException("Должны быть использованы только символы \"y\" или \"n\"");
+        }
+    }
+
+    public void driverLicense() throws NoDriversLicenseException {
+
+    }
 }

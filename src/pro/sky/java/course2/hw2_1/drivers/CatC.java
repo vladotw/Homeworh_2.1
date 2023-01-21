@@ -7,6 +7,10 @@ public class CatC extends Driver {
         super(fio, driversLicense, drivingExp);
     }
 
+//    public char getDriverCategory() {
+//        return driverCategory;
+//    }
+
     @Override
     public void refuelTheCar() {
         System.out.println("Водитель грузовика " + getFio() + " производит заправку.");

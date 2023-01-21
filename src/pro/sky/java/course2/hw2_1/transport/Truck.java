@@ -1,5 +1,6 @@
 package pro.sky.java.course2.hw2_1.transport;
 
+import pro.sky.java.course2.hw2_1.drivers.CatB;
 import pro.sky.java.course2.hw2_1.drivers.CatC;
 
 
@@ -17,6 +18,21 @@ public class Truck extends Transport<CatC> {
         super(brand, model, engineVolume, driver);
         this.truckType = truckType;
     }
+
+    @Override
+    public void driverLicense() throws NoDriversLicenseException {
+        if (!getDriver().isDriversLicense() || getDriver().getClass() != CatC.class) {
+            throw new NoDriversLicenseException("Необходимо указать тип прав!");
+        } else {
+            System.out.println("У водителя " + getDriver().getFio() + " права категории C.");
+        }
+    }
+
+    @Override
+    public void passDiagnostics(char pass) {
+        super.passDiagnostics(pass);
+    }
+
 
     @Override
     public void finishMoving() {
@@ -71,4 +87,6 @@ public class Truck extends Transport<CatC> {
     public String toString() {
         return getTruckType().toString();
     }
+
+
 }
