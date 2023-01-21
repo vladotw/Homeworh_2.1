@@ -1,15 +1,10 @@
 package pro.sky.java.course2.hw2_1.drivers;
 
 public class CatC extends Driver {
-    private final char driverCategory = 'C';
 
     public CatC(String fio, boolean driversLicense, int drivingExp) {
         super(fio, driversLicense, drivingExp);
     }
-
-//    public char getDriverCategory() {
-//        return driverCategory;
-//    }
 
     @Override
     public void refuelTheCar() {
