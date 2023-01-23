@@ -1,4 +1,4 @@
-package pro.sky.java.course2.hw2_1.transport;
+package pro.sky.java.course2.hw2_1.truck;
 import java.lang.Float;
 
 public enum TruckType {

@@ -1,9 +1,11 @@
-package pro.sky.java.course2.hw2_1.transport;
+package pro.sky.java.course2.hw2_1.bus;
 
-import pro.sky.java.course2.hw2_1.drivers.CatB;
 import pro.sky.java.course2.hw2_1.drivers.CatD;
+import pro.sky.java.course2.hw2_1.drivers.NoDriversLicenseException;
+import pro.sky.java.course2.hw2_1.mechanic.Mechanic;
+import pro.sky.java.course2.hw2_1.transport.Transport;
 
-public class Bus extends Transport <CatD> {
+public class Bus extends Transport<CatD> {
 
     private static BusType busType;
 
@@ -14,9 +16,10 @@ public class Bus extends Transport <CatD> {
                String model,
                double engineVolume,
                CatD driver,
+               Mechanic mechanic,
                BusType busType
     ) {
-        super(brand, model, engineVolume, driver);
+        super(brand, model, engineVolume, driver, mechanic);
         this.busType = busType;
     }
 
@@ -46,7 +49,7 @@ public class Bus extends Transport <CatD> {
 
     @Override
     public void driverLicense() throws NoDriversLicenseException {
-        if (!getDriver().isDriversLicense() || getDriver().getClass() != CatD.class) {
+        if (!getDriver().isDriversLicense()) {
             throw new NoDriversLicenseException("Необходимо указать тип прав!");
         } else {
             System.out.println("У водителя " + getDriver().getFio() + " права категории D.");

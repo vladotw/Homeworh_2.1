@@ -1,12 +1,19 @@
 package pro.sky.java.course2.hw2_1.transport;
 
 import pro.sky.java.course2.hw2_1.drivers.Driver;
+import pro.sky.java.course2.hw2_1.drivers.NoDriversLicenseException;
+import pro.sky.java.course2.hw2_1.mechanic.Mechanic;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private double engineVolume;
     private final T driver;
+//    private Mechanic mechanic;
+
 
 //    private final int releaseYear;
 //    private final String originCountry;
@@ -20,7 +27,7 @@ public abstract class Transport<T extends Driver> implements Competing {
 
 //    private static final int DEFAULT_MAXSPEED = 100;
 
-    public Transport(String brand, String model, double engineVolume, T driver) {
+    public Transport(String brand, String model, double engineVolume, T driver, Mechanic mechanic) {
 
         if (brand == null || brand.isBlank()) {
             this.brand = DEFAULT_VALUE;
@@ -38,6 +45,7 @@ public abstract class Transport<T extends Driver> implements Competing {
         this.driver = driver;
     }
 
+
 //        setBodyColor(bodyColor);
 //        setMaxSpeed(maxSpeed);
 
@@ -52,6 +60,21 @@ public abstract class Transport<T extends Driver> implements Competing {
 //        } else {
 //            this.originCountry = originCountry;
 //        }
+
+    List<Transport> transports = new ArrayList<>();
+
+
+
+    List<Mechanic> mechanics = new ArrayList<>();
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public void addMechanic(Mechanic mechanic) {
+        mechanics.add(mechanic);
+    }
+
 
     public String getBrand() {
         return brand;
@@ -137,7 +160,7 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     public abstract void printType();
 
-    public void passDiagnostics(char pass){
+    public void passDiagnostics(char pass) {
         if (pass == 'y') {
             System.out.println("Пройти диагностику");
         } else if (pass == 'n') {
@@ -147,7 +170,7 @@ public abstract class Transport<T extends Driver> implements Competing {
         }
     }
 
-    public void driverLicense() throws NoDriversLicenseException {
+    public abstract void driverLicense() throws NoDriversLicenseException;
 
-    }
+
 }

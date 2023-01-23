@@ -1,9 +1,9 @@
-package pro.sky.java.course2.hw2_1.transport;
+package pro.sky.java.course2.hw2_1.car;
 
 import pro.sky.java.course2.hw2_1.drivers.CatB;
-import pro.sky.java.course2.hw2_1.drivers.CatC;
-
-import java.util.Arrays;
+import pro.sky.java.course2.hw2_1.drivers.NoDriversLicenseException;
+import pro.sky.java.course2.hw2_1.mechanic.Mechanic;
+import pro.sky.java.course2.hw2_1.transport.Transport;
 
 public class Car extends Transport<CatB> {
 
@@ -26,9 +26,10 @@ public class Car extends Transport<CatB> {
                String model,
                double engineVolume,
                CatB driver,
+               Mechanic mechanic,
                CarType carType) {
-        super(brand, model, engineVolume, driver);
-        this.carType = carType;
+        super(brand, model, engineVolume, driver, mechanic);
+        setCarType(carType);
 
     }
 
@@ -165,8 +166,12 @@ public class Car extends Transport<CatB> {
         return carType;
     }
 
-    public void setCarType(String bodyType) {
-
+    public void setCarType(CarType carType) {
+        if (carType != null) {
+            this.carType = carType;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
 //    public void doType(CarType type) {
@@ -192,13 +197,8 @@ public class Car extends Transport<CatB> {
     }
 
     @Override
-    public void passDiagnostics(char pass) {
-        super.passDiagnostics(pass);
-    }
-
-    @Override
     public void driverLicense() throws NoDriversLicenseException {
-        if (!getDriver().isDriversLicense() || getDriver().getClass() != CatB.class) {
+        if (!getDriver().isDriversLicense()) {
             throw new NoDriversLicenseException("Необходимо указать тип прав!");
         } else {
             System.out.println("У водителя " + getDriver().getFio() + " права категории B.");
@@ -227,13 +227,8 @@ public class Car extends Transport<CatB> {
                 " км/ч");
     }
 
-
-
-
     @Override
     public String toString() {
         return getCarType().toString();
     }
-
-
 }
