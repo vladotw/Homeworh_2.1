@@ -6,6 +6,7 @@ import pro.sky.java.course2.hw2_1.car.Car;
 import pro.sky.java.course2.hw2_1.car.CarType;
 import pro.sky.java.course2.hw2_1.drivers.*;
 import pro.sky.java.course2.hw2_1.mechanic.Mechanic;
+import pro.sky.java.course2.hw2_1.mechanic.ServiceStation;
 import pro.sky.java.course2.hw2_1.mechanic.WorkType;
 import pro.sky.java.course2.hw2_1.transport.*;
 import pro.sky.java.course2.hw2_1.truck.Truck;
@@ -120,6 +121,19 @@ public class Main {
         drivers.add(driverD1);
 
         transportInfo(ladaGranta);
+
+        ServiceStation station = new ServiceStation();
+
+        station.addTransportToQueue(ladaGranta);
+        station.addTransportToQueue(kamAZ6560);
+        station.addTransportToQueue(maz);
+
+        station.condactTO();
+        station.condactTO();
+
+
+
+
     }
 
     public static void transportInfo(Transport... transports) {

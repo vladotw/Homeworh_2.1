@@ -3,10 +3,6 @@ package pro.sky.java.course2.hw2_1.mechanic;
 import pro.sky.java.course2.hw2_1.bus.Bus;
 import pro.sky.java.course2.hw2_1.transport.Transport;
 
-import javax.sound.midi.Soundbank;
-import java.util.List;
-import java.util.PrimitiveIterator;
-
 public class Mechanic {
 
     private String name;
