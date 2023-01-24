@@ -4,15 +4,15 @@ import pro.sky.java.course2.hw2_1.drivers.Driver;
 import pro.sky.java.course2.hw2_1.drivers.NoDriversLicenseException;
 import pro.sky.java.course2.hw2_1.mechanic.Mechanic;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private double engineVolume;
     private final T driver;
-//    private Mechanic mechanic;
+    private Set<Mechanic> mechanics = new HashSet<>();
+
 
 
 //    private final int releaseYear;
@@ -43,7 +43,9 @@ public abstract class Transport<T extends Driver> implements Competing {
 
         setEngineVolume(engineVolume);
         this.driver = driver;
+
     }
+
 
 
 //        setBodyColor(bodyColor);
@@ -55,26 +57,22 @@ public abstract class Transport<T extends Driver> implements Competing {
 //            this.releaseYear = releaseYear;
 //        }
 
-//        if (originCountry == null || originCountry.isBlank()) {
+    //        if (originCountry == null || originCountry.isBlank()) {
 //            this.originCountry = DEFAULT_VALUE;
 //        } else {
 //            this.originCountry = originCountry;
 //        }
 
-    List<Transport> transports = new ArrayList<>();
 
 
 
-    List<Mechanic> mechanics = new ArrayList<>();
-
-    public List<Mechanic> getMechanics() {
+    public Set<Mechanic> getMechanics() {
         return mechanics;
     }
 
     public void addMechanic(Mechanic mechanic) {
         mechanics.add(mechanic);
     }
-
 
     public String getBrand() {
         return brand;
@@ -169,6 +167,7 @@ public abstract class Transport<T extends Driver> implements Competing {
             throw new IllegalArgumentException("Должны быть использованы только символы \"y\" или \"n\"");
         }
     }
+
 
     public abstract void driverLicense() throws NoDriversLicenseException;
 

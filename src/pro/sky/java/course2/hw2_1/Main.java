@@ -12,8 +12,7 @@ import pro.sky.java.course2.hw2_1.transport.*;
 import pro.sky.java.course2.hw2_1.truck.Truck;
 import pro.sky.java.course2.hw2_1.truck.TruckType;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class Main {
@@ -122,6 +121,12 @@ public class Main {
 
         transportInfo(ladaGranta);
 
+        List<Transport> vehicles = new ArrayList<>();
+
+        vehicles.add(ladaGranta);
+        vehicles.add(kamAZ6560);
+        vehicles.add(maz);
+
         ServiceStation station = new ServiceStation();
 
         station.addTransportToQueue(ladaGranta);
@@ -130,6 +135,15 @@ public class Main {
 
         station.condactTO();
         station.condactTO();
+
+
+
+        Map<Transport, Mechanic> transportMechanicMap = new HashMap<>();
+
+
+        transportMechanicMap.put(ladaGranta, mechanic3);
+        transportMechanicMap.put(kamAZ6560, mechanic2);
+        transportMechanicMap.put(maz, mechanic2);
 
 
 
@@ -159,5 +173,6 @@ public class Main {
         transport.printType();
     }
 
+    
 
 }
