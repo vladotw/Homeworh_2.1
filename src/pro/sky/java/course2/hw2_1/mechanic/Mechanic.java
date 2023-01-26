@@ -3,6 +3,8 @@ package pro.sky.java.course2.hw2_1.mechanic;
 import pro.sky.java.course2.hw2_1.bus.Bus;
 import pro.sky.java.course2.hw2_1.transport.Transport;
 
+import java.util.Objects;
+
 public class Mechanic {
 
     private String name;
@@ -26,7 +28,6 @@ private WorkType type;
                 System.out.println("Мастер " + getName() +  " проводит техобслуживание" + transport.getBrand() +
                         " " + transport.getModel());
             }
-
     }
 
     public void fixTransport(Transport transport) {
@@ -58,7 +59,6 @@ private WorkType type;
         } else {
             this.company = company;
         }
-
     }
 
     public WorkType getType() {
@@ -75,4 +75,18 @@ private WorkType type;
                 " из компании " + company;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Mechanic)) return false;
+        Mechanic mechanic = (Mechanic) o;
+        return Objects.equals(getName(), mechanic.getName())
+                && Objects.equals(getCompany(), mechanic.getCompany())
+                && getType() == mechanic.getType();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getCompany(), getType());
+    }
 }

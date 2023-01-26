@@ -13,8 +13,6 @@ public abstract class Transport<T extends Driver> implements Competing {
     private final T driver;
     private Set<Mechanic> mechanics = new HashSet<>();
 
-
-
 //    private final int releaseYear;
 //    private final String originCountry;
 //    private String bodyColor;
@@ -43,10 +41,7 @@ public abstract class Transport<T extends Driver> implements Competing {
 
         setEngineVolume(engineVolume);
         this.driver = driver;
-
     }
-
-
 
 //        setBodyColor(bodyColor);
 //        setMaxSpeed(maxSpeed);
@@ -62,9 +57,6 @@ public abstract class Transport<T extends Driver> implements Competing {
 //        } else {
 //            this.originCountry = originCountry;
 //        }
-
-
-
 
     public Set<Mechanic> getMechanics() {
         return mechanics;
@@ -94,7 +86,7 @@ public abstract class Transport<T extends Driver> implements Competing {
         }
     }
 
-//    public String getBodyColor() {
+    //    public String getBodyColor() {
 //        return bodyColor;
 //    }
 
@@ -147,6 +139,22 @@ public abstract class Transport<T extends Driver> implements Competing {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transport)) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.getEngineVolume(), getEngineVolume()) == 0
+                && Objects.equals(getBrand(), transport.getBrand())
+                && Objects.equals(getModel(), transport.getModel())
+                && Objects.equals(getDriver(), transport.getDriver())
+                && Objects.equals(getMechanics(), transport.getMechanics());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrand(), getModel(), getEngineVolume(), getDriver(), getMechanics());
+    }
 
     public abstract void startMoving();
 
@@ -167,7 +175,6 @@ public abstract class Transport<T extends Driver> implements Competing {
             throw new IllegalArgumentException("Должны быть использованы только символы \"y\" или \"n\"");
         }
     }
-
 
     public abstract void driverLicense() throws NoDriversLicenseException;
 

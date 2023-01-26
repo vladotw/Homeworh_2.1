@@ -14,7 +14,6 @@ import pro.sky.java.course2.hw2_1.truck.TruckType;
 
 import java.util.*;
 
-
 public class Main {
 
     public static void main(String[] args) {
@@ -43,7 +42,6 @@ public class Main {
         Car bmwF20 = new Car("BMW", "F20", 1.6, driverB3, mechanic2, CarType.HATCHBACK);
         Car bmwF23 = new Car("BMW", "F23", 2.0, driverB4, mechanic3, CarType.SEDAN);
 
-
 //        System.out.println(ladaGranta);
 //        System.out.println(audiA8);
 
@@ -51,7 +49,6 @@ public class Main {
         Bus nefaz = new Bus("Нефаз", "НефАЗ-5299Э", 6.7, driverD2, mechanic2, BusType.BIG);
         Bus gazel = new Bus("ГАЗельNEXT", "А65R52", 2.8, driverD3, mechanic2, BusType.SMALL);
         Bus volvoB10M = new Bus("Volvo", "B10M", 9.6, driverD4, mechanic2, BusType.VBIG);
-
 
 //        System.out.println(maz);
 //        System.out.println(nefaz);
@@ -98,7 +95,6 @@ public class Main {
 //        kamAZ6560.addTransport();
 //        maz.addTransport();
 
-
         ladaGranta.addMechanic(mechanic1);
         ladaGranta.addMechanic(mechanic2);
 
@@ -106,8 +102,6 @@ public class Main {
 
         maz.addMechanic(mechanic2);
         maz.addMechanic(mechanic3);
-
-
 
 //        raceTransports.add(ladaGranta);
 //        raceTransports.add(kamAZ6560);
@@ -136,17 +130,11 @@ public class Main {
         station.condactTO();
         station.condactTO();
 
-
-
         Map<Transport, Mechanic> transportMechanicMap = new HashMap<>();
-
 
         transportMechanicMap.put(ladaGranta, mechanic3);
         transportMechanicMap.put(kamAZ6560, mechanic2);
         transportMechanicMap.put(maz, mechanic2);
-
-
-
 
     }
 
@@ -164,7 +152,6 @@ public class Main {
                 System.out.println(e.getMessage());
             }
         }
-
     }
 
     private static void printInfo(Transport transport) {
